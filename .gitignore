@@ -1,2 +1,3 @@
 src/Logistic_Regression.egg-info
 src/logisticRegression/__pycache__/*
+*.ipynb
