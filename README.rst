@@ -34,16 +34,10 @@ Logistic-Regression
 =====
 
 
-    Add a short description here!
+    Code for logistic regression classification from scratch. This project helps one understand the inner workings of this classification algorithm.
 
 
-A longer description of your project goes here...
+Logistic Regression Classification is a fundamental technique in machine learning used for solving classification problems. It is a type of regression analysis that is used when the dependent variable is dichotomous or binary in nature, which means that it can take only two possible values. In logistic regression classification, we use a logistic function to model the relationship between the input variables and the output binary variable. This function is also known as the sigmoid function, and it outputs a value between 0 and 1, which can be interpreted as the probability of the binary outcome.
 
 
-.. _pyscaffold-notes:
 
-Note
-====
-
-This project has been set up using PyScaffold 4.4.1. For details and usage
-information on PyScaffold see https://pyscaffold.org/.
