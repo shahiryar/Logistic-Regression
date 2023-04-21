@@ -1,6 +1,11 @@
 print("hello regressor")
 import numpy as np
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, roc_curve, precision_recall_curve
+
+
 class LogisticRegression:
     
     def __init__(self, lr=0.01, num_iter=100000, fit_intercept=True, verbose=False):
@@ -50,3 +55,36 @@ class LogisticRegression:
     
     def predict(self, X, threshold=0.5):
         return self.predict_prob(X) >= threshold
+
+    def visualize_results(X_test, y_test, method='confusion_matrix'):
+        if method == 'confusion_matrix':
+            y_pred = self.predict(X_test)
+            cm = confusion_matrix(y_test, y_pred)
+            sns.heatmap(cm, annot=True, cmap='Blues')
+            plt.title('Confusion Matrix')
+            plt.xlabel('Predicted Label')
+            plt.ylabel('True Label')
+            plt.show()
+            
+        elif method == 'roc_curve':
+            y_pred_prob = self.predict_proba(X_test)[:, 1]
+            fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
+            plt.plot(fpr, tpr)
+            plt.plot([0, 1], [0, 1], linestyle='--')
+            plt.xlabel('False Positive Rate')
+            plt.ylabel('True Positive Rate')
+            plt.title('ROC Curve')
+            plt.show()
+            
+        elif method == 'precision_recall_curve':
+            y_pred_prob = self.predict_proba(X_test)[:, 1]
+            precision, recall, thresholds = precision_recall_curve(y_test, y_pred_prob)
+            plt.plot(recall, precision)
+            plt.xlabel('Recall')
+            plt.ylabel('Precision')
+            plt.title('Precision-Recall Curve')
+            plt.show()
+            
+        else:
+            print('Invalid method name.')
+

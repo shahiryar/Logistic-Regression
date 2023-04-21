@@ -3,4 +3,7 @@
 # under `install_requires` in `setup.cfg` is also listed here!
 sphinx>=3.2.1
 numpy>=1.24.2
+seaborn
+matplotlib
+sklearn
 # sphinx_rtd_theme
