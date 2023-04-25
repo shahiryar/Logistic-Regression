@@ -1,8 +1,7 @@
 import numpy as np
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, roc_curve, precision_recall_curve
+#TODO: Confusion Matrix method without sklearn
+
 
 
 class LogisticRegression:
@@ -102,6 +101,9 @@ class LogisticRegression:
         return self.predict_prob(X) >= threshold
 
     def vizualize_results(X_test, y_test, method='confusion_matrix'):
+        from sklearn.metrics import confusion_matrix, roc_curve, precision_recall_curve
+        import matplotlib.pyplot as plt
+        import seaborn as sns
         """Visualize the accuracy of the model using various metrics.
 
         Args:
