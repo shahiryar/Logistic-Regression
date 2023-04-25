@@ -190,6 +190,21 @@ class LogisticRegression:
         y_pred = self.predict(X_test, threshold=threshold)
         return (np.equal(y_pred, y_test).sum()/len(y_test))
     
+    def confusion_matrix(X_test, y_test):
+
+        y_pred = self.predict(X_test)
+        classes = np.unique(y_test)
+        confusion_m = []
+        for pred_c in classes:
+            idx = np.where(y_pred == pred_c)
+            _test_pred = y_test[idx]
+            _row = []
+            for actual_c in classes:
+                _row.append(np.equal(_test_pred, actual_c).sum())
+            confusion_m.append(_row)
+
+        return np.array(confusion_m).T
+    
 
         
 
