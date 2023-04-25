@@ -191,6 +191,23 @@ class LogisticRegression:
         return (np.equal(y_pred, y_test).sum()/len(y_test))
     
     def confusion_matrix(X_test, y_test):
+        """Compute the confusion matrix for the logistic regression model.
+        Parameters:
+        -----------
+        X_test: array-like of shape (n_samples, n_features)
+        Test data.
+
+        y_test: array-like of shape (n_samples,)
+        True labels for `X_test`.
+
+        Returns:
+        --------
+        confusion_m: array-like of shape (n_classes, n_classes)
+        Confusion matrix, where `n_classes` is the number of unique classes in `y_test`.
+        The rows represent the actual classes and the columns represent the predicted classes.
+        The (i, j) element of the matrix represents the number of instances where the actual class
+        was i and the predicted class was j.
+        """
 
         y_pred = self.predict(X_test)
         classes = np.unique(y_test)
