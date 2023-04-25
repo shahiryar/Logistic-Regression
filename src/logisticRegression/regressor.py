@@ -1,9 +1,5 @@
 import numpy as np
 
-#TODO: Confusion Matrix method without sklearn
-
-
-
 class LogisticRegression:
     """Creates Logictic Regression model from a given set of data
 
@@ -221,7 +217,3 @@ class LogisticRegression:
             confusion_m.append(_row)
 
         return np.array(confusion_m).T
-    
-
-        
-
