@@ -1,14 +1,14 @@
 import numpy as np
 
-class LogisticRegression:
-    """Creates Logictic Regression model from a given set of data
+"""Creates Logictic Regression model from a given set of data
 
         Attributes:
             lr (float): learning rate, a float representing the size of the step used for updating the parameters during training
             num_iter (int): The number of iterations to run the optimization algorithm during training
             fit_intercept (Boolean): A boolean indicating wheather to fit an intercept term (bias) in the logistic regression model
             verbose (Boolean): A boolan indicating whether to print the progress during training
-    """
+"""
+class LogisticRegression:
     
     def __init__(self, lr=0.01, num_iter=100000, fit_intercept=True, verbose=False):
         """Initialize a new instance of Logictic Regression model
