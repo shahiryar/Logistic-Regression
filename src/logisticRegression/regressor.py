@@ -158,3 +158,38 @@ class LogisticRegression:
         else:
             print('Invalid method name.')
 
+    def accuracy(X_test, y_test, threshold=0.5):
+        """
+        Calculates the accuracy of the logistic regression model on the test data.
+
+        Parameters:
+        -----------
+        X_test : array-like of shape (n_samples, n_features)
+            The test input samples.
+
+        y_test : array-like of shape (n_samples,)
+            The true target values for the test input samples.
+
+        threshold : float, optional (default=0.5)
+            The threshold value to use for the predicted probabilities.
+            All probabilities above this threshold are considered positive.
+
+        Returns:
+        --------
+        float
+            The accuracy of the logistic regression model on the test data.
+            This is defined as the number of correct predictions divided by
+            the total number of predictions.
+
+        Raises:
+        -------
+        ValueError
+            If X_test and y_test have incompatible shapes, or if y_test contains
+            values other than 0 or 1.
+        """
+        y_pred = self.predict(X_test, threshold=threshold)
+        return (np.equal(y_pred, y_test).sum()/len(y_test))
+    
+
+        
+
