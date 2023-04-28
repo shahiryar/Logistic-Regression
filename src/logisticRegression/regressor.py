@@ -104,6 +104,28 @@ class LogisticRegression:
             >>> y_pred = model.predict(X_test, threshold=0.7)
         """
         return self.predict_prob(X) >= threshold
+    
+
+    def predict_one_vs_all(self, X, labels):
+        """
+        Make predictions using a one-vs-all strategy.
+        Parameters
+        ----------
+        X : array-like of shape (n_samples, n_features)
+            The input data.
+        labels : array-like of shape (n_classes,)
+            The labels of the classes to predict.
+        
+        Returns
+        -------
+        y_pred : array-like of shape (n_classes, n_samples)
+            The predicted probabilities for each class and sample.
+        """
+        probabilities = []
+        for label in labels:
+            label_y = np.array([1 if y == label else 0 for y in y_train])
+            probabilities.append(self.predict_prob(X))
+        return np.array(probabilities)
 
     def vizualize_results(X_test, y_test, method='confusion_matrix'):
         from sklearn.metrics import confusion_matrix, roc_curve, precision_recall_curve
