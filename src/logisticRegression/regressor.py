@@ -1,3 +1,12 @@
+#TODO: One-vs-all Classification:
+#TODO: Grid Search
+#TODO: Cross-Validation
+#TODO: Early Stopping
+#TODO: Batch Gradient Descent
+#TODO: Regularization
+
+
+
 import numpy as np
 
 """Creates Logictic Regression model from a given set of data
