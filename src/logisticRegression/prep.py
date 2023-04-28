@@ -1,8 +1,7 @@
-#TODO: OneHotEncoding given an array (without sklearn)
 #TODO: Standardization of data given a numpy array
 
 import csv
-import numpy
+import numpy as np
 
 def load_csv(file_path):
     """
@@ -32,5 +31,28 @@ def load_csv(file_path):
             if len(observation) != n_features: 
                 raise Exception("Number of values do not match the number of columns")
             vals.append(list(row.values()))
-    vals = numpy.array(vals, dtype=float)
+    vals = np.array(vals, dtype=float)
     return {"columns": cols, "values":vals}
+
+def one_hot_encode(arr, prefix):
+    """
+    Encode an array of strings using one-hot encoding and return a dictionary
+    containing the encoded data with column names as keys.
+
+    Args:
+    arr (np.ndarray): Array of strings to encode
+    prefix (str): Prefix to use for column names
+
+    Returns:
+    dict: A dictionary containing the encoded data with column names as keys
+    """
+    unique_vals = np.unique(arr)
+    encoded = np.zeros((len(arr), len(unique_vals)))
+    
+    for i, val in enumerate(unique_vals):
+        encoded[:, i] = (arr == val).astype(int)
+    
+    columns = [f"{prefix}_{val}" for val in unique_vals]
+    result_dict = dict(zip(columns, encoded.T))
+    
+    return result_dict
