@@ -1,5 +1,6 @@
 #TODO: Standardization of data given a numpy array
 
+
 import csv
 import numpy as np
 
@@ -45,6 +46,7 @@ def one_hot_encode(arr, prefix):
 
     Returns:
     dict: A dictionary containing the encoded data with column names as keys
+    a small change
     """
     unique_vals = np.unique(arr)
     encoded = np.zeros((len(arr), len(unique_vals)))
