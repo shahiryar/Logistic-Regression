@@ -43,3 +43,11 @@ def test_multi_class_classification(multi_class_data):
     y_pred = model.predict_one_vs_all(X, labels=np.unique(y))
     assert y_pred.shape == (len(np.unique(y)), len(y))
     assert np.all(np.isin(y_pred.argmax(axis=0), np.unique(y)))
+
+def test_visualization(binary_data):
+    X, y = binary_data
+    model = LogisticRegression(lr=0.1, num_iter=5000, fit_intercept=True, verbose=False)
+    model.fit(X, y)
+    model.vizualize_results(X, y, method='confusion_matrix')
+    model.vizualize_results(X, y, method='roc_curve')
+    model.vizualize_results(X, y, method='precision_recall_curve')
