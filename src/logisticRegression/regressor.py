@@ -127,7 +127,7 @@ class LogisticRegression:
             probabilities.append(self.predict_prob(X))
         return np.array(probabilities)
 
-    def vizualize_results(X_test, y_test, method='confusion_matrix'):
+    def vizualize_results(self, X_test, y_test, method='confusion_matrix'):
         from sklearn.metrics import confusion_matrix, roc_curve, precision_recall_curve
         import matplotlib.pyplot as plt
         import seaborn as sns
@@ -185,7 +185,7 @@ class LogisticRegression:
         else:
             print('Invalid method name.')
 
-    def accuracy(X_test, y_test, threshold=0.5):
+    def accuracy(self, X_test, y_test, threshold=0.5):
         """
         Calculates the accuracy of the logistic regression model on the test data.
 
@@ -217,7 +217,7 @@ class LogisticRegression:
         y_pred = self.predict(X_test, threshold=threshold)
         return (np.equal(y_pred, y_test).sum()/len(y_test))
     
-    def confusion_matrix(X_test, y_test):
+    def confusion_matrix(self, X_test, y_test):
         """Compute the confusion matrix for the logistic regression model.
         Parameters:
         -----------
