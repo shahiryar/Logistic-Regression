@@ -19,3 +19,9 @@ Logistic Regression Classification is a fundamental technique in machine learnin
 
 # Applications of Logistic Regression Classification
 Logistic Regression Classification is widely used in many areas such as finance, healthcare, and marketing, where predicting binary outcomes is of great importance. For example, in healthcare, logistic regression classification can be used to predict whether a patient will develop a particular disease or not based on their medical history and other relevant factors. In finance, logistic regression classification can be used to predict whether a loan applicant is likely to default on their loan or not. In marketing, it can be used to predict whether a customer is likely to purchase a particular product or not.
+
+# How to use
+The `logisticRegression` library contains three major modules:
+`model_selection` : for functions like test train split
+`prep` : for preprocessing of data
+`regressor` : the regression class
